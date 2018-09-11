@@ -1,0 +1,32 @@
+$columns: 12;
+$gap: 10px;
+$bp: 720px;
+
+
+.container {
+    padding-left: $gap;
+    padding-right: $gap;
+    .row {
+        margin-left: -$gap;
+        margin-right: -$gap;
+
+        [class^="col-"] {
+            margin-left: $gap;
+            box-sizing: border-box;
+            padding-left: $gap;
+            padding-right: $gap;
+            padding-top: 2*$gap;
+        }
+
+        @media(min-width: #{$bp}) {
+            display: flex;
+
+            @for $i from 1 through $columns {
+                .col-#{$i}-#{$columns} {
+                    width: (100/12*$i)*1%;
+
+                }
+            }
+        }
+    }
+}

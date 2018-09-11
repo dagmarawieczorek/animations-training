@@ -1,0 +1,232 @@
+
+body {
+    margin: 0;
+    background: #CD8494;
+}
+
+.test {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart {
+    width: 100%;
+    border-radius: 20px 10px 0 20px;
+    background: #CD8494;
+
+    button {
+        border: 2px solid orange red;
+        color: crimson;
+        padding: 20px 80px;
+        background: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 50px;
+        transition: 2s;
+    }
+
+    button:hover {
+        transform: scale(1.2);
+        box-shadow: inset 0 0 0 60px crimson, 0 0 0 5px rgba(crimson, 0.4);
+        color: white;
+    }
+}
+
+.test2 {
+    background: aliceblue;
+    display: flex;
+    justify-content: center;
+    height: 150px;
+
+    .loading {
+        WIDTH: 40px;
+        height: 40px;
+        border: 3px solid rgba(35, 124, 233, 0.84);
+        border-radius: 50%;
+        border-right: 6px dashed blue;
+        animation: test2Anim 1.5s 0.2s infinite linear;
+    }
+
+    &:hover {
+    }
+}
+
+@keyframes test2Anim {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.test3 {
+    background: palevioletred;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .loading {
+        height: 60px;
+        width: 60px;
+        border: 1px solid;
+        position: relative;
+        animation: test3AnimBox 1.5s 0.2s infinite alternate ease-in-out;
+        &:after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50px;
+            display: block;
+            background: white;
+            position: absolute;
+            right: -10px;
+            top: calc(50% - 10px);
+            animation: test3AnimDott 1.5s 0.2s alternate ease-in-out;
+        }
+
+    }
+
+    @keyframes test3AnimBox {
+        100% {
+            transform: rotate(-180deg)
+        }
+    }
+
+    @keyframes test3AnimDott {
+
+        0% {
+            transform: scaleX(1.1)
+        }
+        50% {
+            transform: scaleX(0.5)
+        }
+        100% {
+            transform: scaleX(1.1)
+        }
+
+    }
+
+}
+
+.test4 {
+    background: springgreen;
+    display: flex;
+    justify-content: center;
+
+    .loading {
+        height: 150px;
+        width: 510px;
+        display: flex;
+
+        span {
+            background: white;
+            flex-grow: 1;
+            margin: 1px;
+            animation: test4BarAnim 1s 0s infinite alternate;
+            transform-origin: 50% 100%;
+
+            @for $i from 1 through 10 {
+                &:nth-of-type(#{$i}) {
+                    animation-delay: ($i*0.2)*1s;
+                }
+            }
+        }
+    }
+}
+
+@keyframes test4BarAnim {
+
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+.test5 {
+    background: gold;
+
+    .nav-toggle {
+        width: 80px;
+        height: 80px;
+        background: none;
+        position: relative;
+        border: 0;
+        outline: none;
+        span {
+            background: white;
+            width: 50px;
+            height: 8px;
+            display: block;
+            border-radius: 2px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        span:nth-of-type(2) {
+            margin-top: -15px;
+        }
+
+        span:nth-of-type(3) {
+            margin-top: 15px;
+        }
+    }
+
+    .nav-toggle.anim {
+        span:nth-of-type(1) {
+            animation: animSpan1 0.2s 1s 1 forwards;
+        }
+        span:nth-of-type(2) {
+            animation: animSpan2 1s 0.5s 1 forwards;
+        }
+        span:nth-of-type(3) {
+            animation: animSpan3 1s 0.7s 1 forwards;
+        }
+    }
+}
+
+@keyframes animSpan1 {
+    100% {
+        opacity: 0;
+    }
+
+}
+
+@keyframes animSpan2 {
+    50% {
+        margin-top: 0;
+    }
+    100% {
+        margin-top: 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+@keyframes animSpan3 {
+    50% {
+        margin-top: 0;
+    }
+    100% {
+        margin-top: 0;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+.test {
+    overflow: hidden;
+}
+
+.test0 {
+    background: gray;
+    height: 100vh;
+
+    div {
+        width: 100%;
+        height: 100%;
+        background: url(https://images.pexels.com/photos/459038/pexels-photo-459038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+        background-size: cover;
+        background-attachment: fixed;
+        transform-origin: 50% 100%;
+    }
+}
